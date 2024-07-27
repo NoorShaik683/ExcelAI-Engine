@@ -102,4 +102,39 @@ Edit Excels using Natural Language Queries
    docker rm <container-id>
    ```
 
+## API Endpoints
+
+### 1. `/process-structured-data`
+
+**Method:** `POST`
+
+**Description:** Processes structured data from an Excel file. Optionally, you can provide a second Excel file for additional data operations(joins).
+
+**Request Body:**
+
+```json
+{
+  "file_path": "path/to/your/file.xlsx",
+  "second_file_path": "path/to/second/file.xlsx",(Optional -> applicable for joins)
+  "query": "your query here",
+  "operation": "operation type (e.g.basic-math, aggregation, joins, pivot, date-operations)"
+}
+```
+
+
+### 2. `/process-unstructured-data`
+
+**Method:** `POST`
+
+**Description:** Processes unstructured data from an Excel file in chunks and applies the user-defined modifications.
+
+**Request Body:**
+
+```json
+{
+  "file_path": "path/to/your/file.xlsx",
+  "query": "your query here"
+}
+```
+
 ---
