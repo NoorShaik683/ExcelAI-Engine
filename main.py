@@ -41,7 +41,7 @@ async def process_data(data: StructuredDataModel):
         df = pd.read_excel(data.file_path)
         
         # Read the secondary Excel file if provided
-        if data.second_file_path:
+        if data.second_file_path and data.second_file_path!="string":
             if not data.second_file_path.lower().endswith('.xlsx'):
                 logger.error(f"Invalid file type: {data.second_file_path}")
                 return JSONResponse({"message": "Please Upload a XLSX File only."}, status_code=400)
